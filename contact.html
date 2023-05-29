@@ -1,5 +1,13 @@
 <!DOCTYPE html>
  <html>
+  <ul class"menu"
+  <li><a href="index.html"> HOME</a></li>
+  <li><a href="AboutMe.html"> ABOUT</a></li>
+  <li><a href="featured.html"> PROJECTS </a></li>
+  <li><a href="skill.html"> SKILL</a></li>
+  <li><a href="contact.html"> CONTACTS</a></li>
+   </ul>   
+
     <style>
         input[type=text], select {
           width: 100%;
@@ -31,6 +39,14 @@
           background-color: #f2f2f2;
           padding: 20px;
         }
+        li  {
+          	display: inline;
+          	padding: 50px;
+          }
+          ul a{
+	       text-decoration: none;
+         color: lightblue;
+          }
         </style>
         <body>
         
@@ -58,9 +74,9 @@
           function myFunction() {
             var txt;
             if (confirm("are you sure you wanna submit your respone!")) {
-              txt = "You pressed OK!";
+              txt = "sent successfully!";
             } else {
-              txt = "You pressed Cancel!";
+              txt = "action Canceled!";
             }
             document.getElementById("demo").innerHTML = txt;
           }
