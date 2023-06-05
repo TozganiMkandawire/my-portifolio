@@ -3,6 +3,7 @@
     <body>
         <title>Tozgani's portifolio</title>
         <header>
+          
           <h1>TozzieJoy</h1>
         </header>
         <ul class"menu"
@@ -12,6 +13,7 @@
         <li><a href="skill.html"> SKILL</a></li>
         </ul>
         </nav>
+        <div id="greeting"></div>
          
         </div>
         <p>HEY!<br> my name is,</p>
@@ -160,6 +162,11 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+div {
+  border-radius: 3px;
+  font-size: 3rem;
+  
+}
             </style>
             <script>
               var slideIndex = 1;
@@ -185,11 +192,20 @@
     }
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
-  }</script>
+  }
+  const greeting = document.getElementById('greeting');
+  const hour = new Date().getHours();
+  const welcomeTypes = ['Good morning', 'Good afternoon', 'Good evening'];
+  let welcomeText = '';
+  if (hour < 12) welcomeText = welcomeTypes[0];
+else if (hour < 18) welcomeText = welcomeTypes[1];
+else welcomeText = welcomeTypes[2];
+greeting.innerHTML = welcomeText;
+  </script>
             
             <div class="footer">call: 0885238420<br>0995459792<br>or Email on mkandawiretozgani@gmail.com</div>
 
-            
+           
     </body>
     </html>
         
