@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <h1>mySkills</h1>
-<ul class"menu"
-<li><a href="index.html"> HOME</a></li>
-<li><a href="AboutMe.html"> ABOUT</a></li>
-<li><a href="featured.html"> PROJECTS </a></li>
-<li><a href="skill.html"> SKILL</a></li>
-<li><a href="contact.html"> CONTACTS</a></li>
+<ul class="menu">
+<li><a href="index.php"> HOME</a></li>
+<li><a href="AboutMe.php"> ABOUT</a></li>
+<li><a href="projects.php"> PROJECTS </a></li>
+<li><a href="skill.php"> SKILL</a></li>
+<li><a href="contact.php"> CONTACTS</a></li>
  </ul>
 
-<p>
-  1. mobile app development<br>
-  2. database adminitration<br>
-  3. web design<br>
-  4. network configuration<br>
-  5. server adminitration<br>
-  6. Game development<br>
   <div id="progress-bar"></div>
         <button onclick="updateProgressBar()">check progress</button>
+        </div>
   
-</p>
-    
 <style>
+  .skills{
+    color: #104c91;
+    font-family: Brush Script MT;
+    font-size: 400%;
+  }
    #progress-bar{
               width:20%;
               height: 5px;
@@ -61,7 +57,28 @@ li  {
                 text-align: center;
               }
   </style>
+  <?php
+    require_once 'connect.php';
+$query="SELECT id ,skillName, descrition FROM skills";
+$result=mysqli_query($connect,$query);
 
-</body>
+if(!$result){
+  die("Error:".mysqli_error($connect));
+}
+  ?>
+<div class ="skill-container">
+<?php while($row = mysqli_fetch_assoc($result)) {?>
+<div class="skill-card" data-category="all">
+<h2><?php echo $row['skillName'];?></h2>
+<p><?php echo $row['descrition'];?></p>
+</div>
+<?php } ?>
+</div>
 
-</html>
+<?php
+mysqli_free_result($result);
+mysqli_close($connect);
+?>
+
+  </body>
+  </html>

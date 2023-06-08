@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
     <body>
+    <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$conn = new mysqli($servername, $username, $password);
+$dbname = "my_portifolio";
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?>
+
         <title>About</title>
         <ul class"menu"
-        <li><a href="index.html"> HOME</a></li>
-        <li><a href="AboutMe.html"> ABOUT</a></li>
-        <li><a href="featured.html"> PROJECTS </a></li>
-        <li><a href="skill.html"> SKILL</a></li>
-        <li><a href="contact.html"> CONTACTS</a></li>
+        <li><a href="index.php"> HOME</a></li>
+        <li><a href="AboutMe.php"> ABOUT</a></li>
+        <li><a href="projects.php"> PROJECTS </a></li>
+        <li><a href="skill.php"> SKILL</a></li>
+        <li><a href="contact.php"> CONTACTS</a></li>
          </ul>
         <h1>ABOUT ME!</h1>
         <img src="pic.jpg" width="400" height="300" class ="center";>
