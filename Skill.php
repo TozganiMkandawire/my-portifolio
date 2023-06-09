@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>mySkills</h1>
 <ul class="menu">
 <li><a href="index.php"> HOME</a></li>
-<li><a href="AboutMe.php"> ABOUT</a></li>
 <li><a href="projects.php"> PROJECTS </a></li>
 <li><a href="skill.php"> SKILL</a></li>
 <li><a href="contact.php"> CONTACTS</a></li>
  </ul>
-
+ <h1>mySkills</h1>
   <div id="progress-bar"></div>
         <button onclick="updateProgressBar()">check progress</button>
         </div>
@@ -56,7 +54,35 @@ li  {
                 font-size: 400%;
                 text-align: center;
               }
+              #progress-bar{
+              width:20%;
+              height: 20px;
+              background-color: black;
+          }
+          .row > .column {
+  padding: 0 8px;
+}
   </style>
+   <script>
+  function updateProgressBar(){
+                var progressBar=document.getElementById("progress-bar");
+                var progress=0;
+                var intervalId=setInterval(frame, 10);
+
+                function frame(){
+                    if (progress >=45){
+                        clearinterval(intervalid);
+                        
+                    }
+                    else{
+                        progress++;
+                        progressBar.style.width=progress +"%";
+                    }
+                }
+
+            }
+            </script>
+
   <?php
     require_once 'connect.php';
 $query="SELECT id ,skillName, descrition FROM skills";
@@ -66,9 +92,7 @@ if(!$result){
   die("Error:".mysqli_error($connect));
 }
   ?>
-<div class ="skill-container">
 <?php while($row = mysqli_fetch_assoc($result)) {?>
-<div class="skill-card" data-category="all">
 <h2><?php echo $row['skillName'];?></h2>
 <p><?php echo $row['descrition'];?></p>
 </div>

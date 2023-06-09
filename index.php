@@ -10,7 +10,7 @@ $dbname = "my_portifolio";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+echo "hey and welcome!!!";
 ?>
 
         <title>Tozgani's portifolio</title>
@@ -18,7 +18,6 @@ echo "Connected successfully";
         </header>
         <ul class="menu">
         <li><a href="index.php"> HOME</a></li>
-        <li><a href="AboutMe.php"> ABOUT </a></li>
         <li><a href="projects.php"> PROJECTS </a></li>
         <li><a href="skill.php"> SKILL</a></li>
         <li><a href="contact.php"> CONTACTS</a></li>
@@ -31,6 +30,10 @@ echo "Connected successfully";
         <p>My name is,</p>
         <h2>Tozgani Joy<br> Mkandawire</h2>
         <p>...and I am a female programmer.</p><br>
+        <h1>ABOUT ME!</h1>
+        <img src="pic.jpg" width="400" height="300" class ="center";>
+        <P>I am a level 2 student studying bachelor of science in ICT at Mzuzu University. As a goal driven and goal oriented student, I am very passionate to learn all I can in the ICT field. As much as I have only been an ICT student for short while, I have been able to get knowledge about a lot of stuff in the ICT field. So far, I have been able to learn how to program in the C language, JAVA and other programming languages. I have also learnt how to troubleshoot and fix computers as well as maintain them<a href="skill.php"> view more</a></P>
+        
         <div class="slideshow-container">
           <div class="mySlides fade">
             <img src="pic10.webp" style="width:50%">
@@ -81,6 +84,13 @@ echo "Connected successfully";
 	text-decoration: none;
   color: #104c91;
           }
+          
+          .center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%
+          }
           .footer{
             position: fixed;
             left: 10px;
@@ -88,18 +98,13 @@ echo "Connected successfully";
             width: 95%;
             color: white;
             text-align: right;
+            font-size: 160%;
           }
           * {
             background-color:#efc9af;
           
 }
-.footer{
-            position: fixed;
-            width: 90%;
-            color: white;
-            text-align: right;
-            font-size: 160%;
-          }
+
 * {box-sizing:border-box}
 .slideshow-container {
   max-width: 1000px;
@@ -138,12 +143,6 @@ echo "Connected successfully";
   text-align: center;
 }
 
-
-div {
-  border-radius: 3px;
-  font-size: 3rem;
-  
-}
             </style>
             <script>
               var slideIndex = 1;
@@ -172,12 +171,13 @@ div {
   }
   const greeting = document.getElementById('greeting');
   const hour = new Date().getHours();
-  const welcomeTypes = ['Good morning', 'Good afternoon', 'Good evening'];
+  const welcomeTypes = ['Hello and Good morning', 'Hello and Good afternoon', 'Hello and Good evening'];
   let welcomeText = '';
   if (hour < 12) welcomeText = welcomeTypes[0];
 else if (hour < 18) welcomeText = welcomeTypes[1];
 else welcomeText = welcomeTypes[2];
 greeting.innerHTML = welcomeText;
+
   </script>
             
             <div class="footer">call: 0885238420<br>0995459792<br>or Email on mkandawiretozgani@gmail.com</div>

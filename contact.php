@@ -5,7 +5,6 @@
     <h1>myContacts</h1>
     <ul class="menu">
         <li><a href="index.php"> HOME</a></li>
-        <li><a href="AboutMe.php"> ABOUT </a></li>
         <li><a href="projects.php"> PROJECTS </a></li>
         <li><a href="skill.php"> SKILL</a></li>
         <li><a href="contact.php"> CONTACTS</a></li>

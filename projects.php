@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html>
 <body>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$conn = new mysqli($servername, $username, $password);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-$db_name = "my_portifolio";
-$conn->select_db($db_name);
-$table_name= "projects";
-?>
 
   <ul class="menu">
         <li><a href="index.php"> HOME</a></li>
-        <li><a href="AboutMe.php"> ABOUT </a></li>
         <li><a href="projects.php"> PROJECTS </a></li>
         <li><a href="skill.php"> SKILL</a></li>
         <li><a href="contact.php"> CONTACTS</a></li>
@@ -43,17 +29,14 @@ $table_name= "projects";
   <div class="modal-content">
 
     <div class="mySlides">
-      <div class="numbertext">1 / 4</div>
       <img src="WOF.jpg" style="width:40%">
     </div>
 
     <div class="mySlides">
-      <div class="numbertext">2 / 4</div>
       <img src="pic14.jpg" style="width:40%">
     </div>
 
     <div class="mySlides">
-      <div class="numbertext">3 / 4</div>
       <img src="pic9.png" style="width:40%">
     </div>
     
@@ -322,9 +305,7 @@ if(!$result){
   die("Error:".mysqli_error($connect));
 }
   ?>
-<div class ="projects-container">
 <?php while($row = mysqli_fetch_assoc($result)) {?>
-<div class="projects-card" data-category="all">
 <h2><?php echo $row['projectName'];?></h2>
 <p><?php echo $row['description'];?></p>
 </div>
