@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Contact Form</title>
-    <h1>myContacts</h1>
+
     <ul class="menu">
         <li><a href="index.php"> HOME</a></li>
         <li><a href="projects.php"> PROJECTS </a></li>
@@ -14,13 +14,13 @@
       * {
             background-color:#efc9af;
             }
-li  {
-          	display: inline;
-          	padding: 50px;
+        li  {
+            display: inline;
+            padding: 50px;
           }
           ul a{
-	text-decoration: none;
-  color: #104c91;
+             text-decoration: none;
+             color: #104c91;
           }
        
         body {
@@ -73,16 +73,6 @@ li  {
             text-align: center;
             font-weight: bold;
         }
-
-        .success {
-            background-color: #c1f0c1;
-            color: #009933;
-        }
-
-        .error {
-            background-color: #f7c0c0;
-            color: #ff0000;
-        }
     </style>
 </head>
 <body>
@@ -105,7 +95,7 @@ li  {
         $sql = "INSERT INTO contacts (Name, Number, email) VALUES ('$name', '$number', '$email')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "<p class='message success'>Data saved successfully!</p>";
+            echo "<p class='message success'>Detals saved successfull!!</p>";
         } else {
             echo "<p class='message error'>Error: " . $sql . "<br>" . $conn->error . "</p>";
         }
@@ -142,7 +132,7 @@ li  {
                     break;
                 }
             }
-
+               
             if (!isValid) {
                 event.preventDefault();
                 alert("Please fill in all fields.");
@@ -151,3 +141,5 @@ li  {
     </script>
 </body>
 </html>
+
+

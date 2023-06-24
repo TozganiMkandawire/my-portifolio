@@ -41,11 +41,11 @@ p  {
             background-color:#efc9af;
             }
 li  {
-          	display: inline;
-          	padding: 50px;
+            display: inline;
+            padding: 50px;
           }
           ul a{
-	text-decoration: none;
+  text-decoration: none;
   color: #104c91;
           }
           h1 {
@@ -106,3 +106,4 @@ mysqli_close($connect);
 
   </body>
   </html>
+

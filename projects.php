@@ -11,16 +11,37 @@
         </nav>
 
 <h1 style="text-align:center">MY CREATIVE SECTION</h1>
+<?php
+    require_once 'connect.php';
+$query="SELECT id ,projectName, description FROM projects";
+$result=mysqli_query($connect,$query);
+
+if(!$result){
+  die("Error:".mysqli_error($connect));
+}
+  ?>
+<?php while($row = mysqli_fetch_assoc($result)) {?>
+<h2><?php echo $row['projectName'];?></h2>
+<p><?php echo $row['description'];?></p>
+</div>
+<?php } ?>
+</div>
+
+<?php
+mysqli_free_result($result);
+mysqli_close($connect);
+?>
+   
 
 <div class="row">
   <div class="column">
-    <img src="WOF.jpg" style="width:80%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+    <img src="WOF.jpg" style="width:80%" onclick="openModal();currentSlide(1)">
   </div>
   <div class="column">
-    <img src="pic14.jpg" style="width:80%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+    <img src="pic14.jpg" style="width:80%" onclick="openModal();currentSlide(2)">
   </div>
   <div class="column">
-    <img src="pic9.png" style="width:80%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+    <img src="pic9.png" style="width:80%" onclick="openModal();currentSlide(3)">
   </div>
  
 
@@ -49,9 +70,8 @@
       <p id="caption"></p>
     </div>
 
-
     <div class="column">
-      <img class="demo cursor" src="WOF.jpg" style="width:50%" onclick="currentSlide(1)" alt="I do graphics designing, posters, fliers and whatnote">
+      <img class="demo cursor" src="WOF.jpg" style="width:50%" onclick="currentSlide(1)" alt="I do graphics designing, posters, fliers etc">
     </div>
     <div class="column">
       <img class="demo cursor" src="pic14.jpg" style="width:50%" onclick="currentSlide(2)" alt="I develop mobile apps, like the one displayed here">
@@ -68,30 +88,16 @@
               height: 20px;
               background-color: black;
           }
-          .row > .column {
-  padding: 0 8px;
-}
-
-  
-body {
-  font-family: Verdana, sans-serif;
-  margin: 0;
-}
+         
 
 * {
   box-sizing: border-box;
 }
-
-.row > .column {
-  padding: 0 8px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
+p  {
+            color: #1f8ac0;
+            font-family: Arial Rounded MT Bold;
+            font-size: 160%;
+          }
 .column {
   float: left;
   width: 25%;
@@ -100,7 +106,6 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
   padding-top: 100px;
   left: 0;
   top: 0;
@@ -110,38 +115,15 @@ body {
   background-color: black;
 }
 
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  width: 90%;
-  max-width: 1200px;
-}
-
 .close {
-  color: white;
   position: absolute;
   top: 10px;
   right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mySlides {
-  display: none;
 }
 
 .cursor {
   cursor: pointer;
-  font-size: small;
+  font-size: large;
   color: black;
 }
 
@@ -152,70 +134,33 @@ body {
   top: 50%;
   width: auto;
   padding: 16px;
-  margin-top: -50px;
   color: white;
   font-weight: bold;
   font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
+  
 }
 
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-img {
-  margin-bottom: -4px;
-}
 
 .caption-container {
   text-align: center;
-  background-color: black;
   padding: 2px 16px;
-  color: white;
+  color: black;
 }
 
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-img.hover-shadow {
-  transition: 0.3s;
-}
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-* {
+    * {
             background-color:#efc9af;
             }
-li  {
-          	display: inline;
-          	padding: 50px;
+     li  {
+            display: inline;
+            padding: 50px;
           }
           ul a{
-	text-decoration: none;
-  color: #104c91;
+    text-decoration: none;
+    color: #104c91;
           }
           h1 {
                 color:#104c91 ;
@@ -296,28 +241,10 @@ function showSlides(n) {
             <div class="footer"> <meta name="viewport" content="width=device-width, initial-scale=1">
               <div id="progress-bar"></div>
                       <button onclick="updateProgressBar()">check progress</button></div> 
-                      <?php
-    require_once 'connect.php';
-$query="SELECT id ,projectName, description FROM projects";
-$result=mysqli_query($connect,$query);
-
-if(!$result){
-  die("Error:".mysqli_error($connect));
-}
-  ?>
-<?php while($row = mysqli_fetch_assoc($result)) {?>
-<h2><?php echo $row['projectName'];?></h2>
-<p><?php echo $row['description'];?></p>
-</div>
-<?php } ?>
-</div>
-
-<?php
-mysqli_free_result($result);
-mysqli_close($connect);
-?>
-   
+                      
            
 
 </body>
 </html>
+
+

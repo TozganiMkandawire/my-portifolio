@@ -10,7 +10,7 @@ $dbname = "my_portifolio";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "hey and welcome!!!";
+echo "hey!";
 ?>
 
         <title>Tozgani's portifolio</title>
@@ -35,28 +35,25 @@ echo "hey and welcome!!!";
         <P>I am a level 2 student studying bachelor of science in ICT at Mzuzu University. As a goal driven and goal oriented student, I am very passionate to learn all I can in the ICT field. As much as I have only been an ICT student for short while, I have been able to get knowledge about a lot of stuff in the ICT field. So far, I have been able to learn how to program in the C language, JAVA and other programming languages. I have also learnt how to troubleshoot and fix computers as well as maintain them<a href="skill.php"> view more</a></P>
         
         <div class="slideshow-container">
-          <div class="mySlides fade">
-            <img src="pic10.webp" style="width:50%">
-            <div class="text">full stack developer</div>
+          <div class="mySlides ">
+            <img src="WOF.jpg" style="width:50%">
           </div>
         
-          <div class="mySlides fade">
-            <img src="pic11.png" style="width:50%">
-            <div class="text">database administrator</div>
+          <div class="mySlides ">
+            <img src="pic9.png" style="width:50%">
           </div>
         
-          <div class="mySlides fade">
-            <img src="pic12.jpg" style="width:50%">
-            <div class="text">server administrator</div>
+          <div class="mySlides ">
+            <img src="pic14.jpg" style="width:50%">
           </div>
           <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
           <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
-        <div style="text-align:center">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
+        
+          <span class="plate" onclick="currentSlide(1)"></span>
+          <span class="plate" onclick="currentSlide(2)"></span>
+          <span class="plate" onclick="currentSlide(3)"></span>
         </div>
         <style>
             h1 {
@@ -77,11 +74,11 @@ echo "hey and welcome!!!";
             font-size: 160%;
           }
           li  {
-          	display: inline;
-          	padding: 60px;
+            display: inline;
+            padding: 60px;
           }
           ul a{
-	text-decoration: none;
+  text-decoration: none;
   color: #104c91;
           }
           
@@ -129,9 +126,6 @@ echo "hey and welcome!!!";
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
 
 .text {
   color: white;
@@ -144,9 +138,11 @@ echo "hey and welcome!!!";
 }
 
             </style>
-            <script>
-              var slideIndex = 1;
+
+  <script>
+  var slideIndex = 1;
   showSlides(slideIndex);
+
   function plusSlides(n) {
     showSlides(slideIndex += n);
   }
@@ -157,17 +153,17 @@ echo "hey and welcome!!!";
   function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
+    var plates = document.getElementsByClassName("plate");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+    for (i = 0; i < plates.length; i++) {
+        plates[i].className = plates[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
+    plates[slideIndex-1].className += " active";
   }
   const greeting = document.getElementById('greeting');
   const hour = new Date().getHours();
@@ -186,3 +182,4 @@ greeting.innerHTML = welcomeText;
     </body>
     </html>
         
+
