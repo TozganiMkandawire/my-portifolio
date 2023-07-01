@@ -12,24 +12,29 @@
 
 <h1 style="text-align:center">MY CREATIVE SECTION</h1>
 <?php
-    require_once 'connect.php';
-$query="SELECT id ,projectName, description FROM projects";
-$result=mysqli_query($connect,$query);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "my_portifolio";
 
-if(!$result){
-  die("Error:".mysqli_error($connect));
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-  ?>
-<?php while($row = mysqli_fetch_assoc($result)) {?>
-<h2><?php echo $row['projectName'];?></h2>
-<p><?php echo $row['description'];?></p>
-</div>
-<?php } ?>
-</div>
+$query = "SELECT id, projectName, description FROM projects";
+$result = mysqli_query($conn, $query);
 
-<?php
+if (!$result) {
+    die("Error: " . mysqli_error($connect));
+}
+
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "<h2>" . $row['projectName'] . "</h2>";
+    echo "<p>" . $row['description'] . "</p>";
+}
+
 mysqli_free_result($result);
-mysqli_close($connect);
+mysqli_close($conn);
 ?>
    
 

@@ -76,38 +76,38 @@
     </style>
 </head>
 <body>
-    <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "my_portifolio"; 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "my_portifolio";
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $number = $_POST["number"];
+    $email = $_POST["email"];
+
+    $sql = "INSERT INTO contacts (Name, Number, email) VALUES ('$name', '$number', '$email')";
+    if (mysqli_query($conn, $sql)) {
+        echo "<p class='message success'>Data saved successfully!</p>";
+    } else {
+        echo "<p class='message error'>Error: " . $sql . "<br>" . mysqli_error($conn) . "</p>";
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST["name"];
-        $number = $_POST["number"];
-        $email = $_POST["email"];
+    mysqli_close($conn);
+}
+?>
 
-        $sql = "INSERT INTO contacts (Name, Number, email) VALUES ('$name', '$number', '$email')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "<p class='message success'>Detals saved successfull!!</p>";
-        } else {
-            echo "<p class='message error'>Error: " . $sql . "<br>" . $conn->error . "</p>";
-        }
-
-        $conn->close();
-    }
-    ?>
 
     <h1>Interested? Reach Me!!!</h1>
 
     <div class="container">
-        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="POST">
             <label for="fname">Name</label>
             <input type="text" id="fname" name="name" placeholder="Your name.." required>
 
